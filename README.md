@@ -82,9 +82,12 @@ EOF
 Congratulation the preparation is done. This was a huge setup, I know. But all the rest is "one command execution"
 
 ## Run the job portal UI
+```
 cd portalUI
-run 'npm install'
-run 'npm start'
+npm install
+HTTS true npm start
+
+```
 
 # Destroy the Confluent Cloud Resources
 If you are finished, you can stop the programs in Terminal with CTRL+c and destroy everything in Confluent Cloud by :
