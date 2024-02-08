@@ -37,7 +37,7 @@ export const Recruiter = () => {
   useEffect(() => {
     alanBtnRef.btnInstance = alanBtn({
       key:
-        "c897e9154ae01a2f35b977ff00fbcca32e956eca572e1d8b807a3e2338fdd0dc/stage",
+        "xxxx/stage",
       onCommand: (commandData) => {
          console.log(commandData)
          //if(commandData.command === 'getProfiles') {
