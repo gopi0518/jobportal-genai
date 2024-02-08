@@ -1,0 +1,10 @@
+import ResumeProcess from './resumeprocess.js';
+
+function App() {
+  return (
+    <div ClassName="App">
+      <ResumeProcess/>
+    </div>
+  )
+}
+export default App

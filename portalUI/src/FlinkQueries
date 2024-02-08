@@ -1,0 +1,2 @@
+INSERT INTO profilepref_v4 SELECT id,location,first_name,last_name,technical_skills,recommended_jobs FROM jobseekers;
+create table profilepref_v4 (ID VARCHAR,LOCATION VARCHAR,FIRST_NAME VARCHAR,LAST_NAME VARCHAR,TECHNICAL_SKILLS VARCHAR,RECOMMENDED_JOBS VARCHAR) PARTITIONED BY (ID);

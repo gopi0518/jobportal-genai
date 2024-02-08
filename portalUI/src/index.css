@@ -1,0 +1,83 @@
+*{
+  margin: 0;
+  padding: 0;
+  
+}
+
+.pdf-container{
+  width: 50%;
+  height: 600px;
+  background-color: #e4e4e4;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column1{
+background-color: #eee;
+width: 45%;
+height: 600px;
+}
+.columnpost{
+background-color: #eee;
+width: 60%;
+height: 600px;
+}
+.columncard{
+width: 25%;
+height: 600px;
+}
+.column2{
+width: 10%;
+height: 600px;
+}
+.column3{
+background-color: #eee;
+width: 45%;
+white-space: pre-line;
+height: 600px;
+overflow-x: hidden;
+overflow-y: auto;
+text-align:justify;
+font-size: 12px;
+border-style: double;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.error-msg{
+  width: 100%;
+  color: red;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.navbar {
+  width: 100%;
+  min-height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fff;
+  background: rgba(29, 161, 242, 1);
+}
+
+.navbar .nav-links {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.navbar .nav-links>a{
+  color: #fff;
+  text-decoration: none;
+}
