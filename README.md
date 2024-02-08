@@ -85,8 +85,13 @@ Congratulation the preparation is done. This was a huge setup, I know. But all t
 ```
 cd portalUI
 npm install
-HTTS true npm start
+HTTPS=true npm start
 
+```
+## Run python code
+
+```
+python resumeclassification.py getting_started.ini
 ```
 
 # Destroy the Confluent Cloud Resources
