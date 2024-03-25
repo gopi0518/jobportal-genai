@@ -1,0 +1,151 @@
+summary_template = """
+                                given the Linkedin information {linkedin_information} about a person from I want you to create:
+                                1. a short summary
+                                2. current company
+                                3. current occupation
+                                4. short summary of reccommendations received
+                                5. short summary of skills endorsed
+
+                                in json
+                            """
+                            # prepare prompt (chat)
+                            summary_prompt_template = PromptTemplate(
+                            input_variables=["linkedin_information"],
+                            template=summary_template,
+                            )
+                            # create chatgpt instance
+                            # llm = ChatOpenAI(temperature=1, model_name="gpt-3.5-turbo")
+                            # LLM chain
+                            chain = LLMChain(llm=llm, prompt=summary_prompt_template)
+                            # execute and print result
+                            result = chain.run(linkedin_information=linkedin_data)
+                            resultjson = json.loads(result)
+                            print(json.loads(result))
+
+
+    while True:
+        try:
+            msg = consumer.poll(1.0)
+            if msg is None:
+                # No message available within timeout.
+                # Initial message consumption may take up to
+                # `session.timeout.ms` for the consumer group to
+                # rebalance and start consuming
+                waiting_count = waiting_count + 1
+                print(
+                    "{}. Waiting for message or event/error in poll(), Flink needs more data, that's why it take while to get 1 event".format(
+                        waiting_count
+                    )
+                )
+                continue
+            elif msg.error():
+                print("error: {}".format(msg.error()))
+            else:
+                jobseeker_object = msg.value()
+                if jobseeker_object is not None:
+                    js_genai=jobseeker_genai(jobseeker_object.resumepath)
+                    print(js_genai["first_name"])
+                    information = js_genai["first_name"]+js_genai["last_name"]
+                    skills_embeddings=generate_embedding(js_genai["recommended_jobs"]+" with "+js_genai["recent_technologies_worked"]+" in "+js_genai["location"])
+                    # skills_embeddings=generate_embedding(js_genai["recent_technologies_worked"])
+                    if information is not None:
+                        print(
+                            "Consumed record with value {}, Total processed rows {}".format(
+                                information, message_count
+                            )
+                        )
+                        message_count = message_count + 1
+                        message = (
+                            "Search for information: "
+                            + str(information)
+                            + " with genAI ice-breaker!"
+                        )
+                        # Here start with genAI
+                        print("Hello LangChain!")
+                        try:
+                            linkedin_profile_url = linkedin_lookup_agent(name=information)
+                            linkedin_data = scrape_linkedin_profile(linkedin_profile_url=linkedin_profile_url)
+                            # Define tasks for chatgpt
+                            summary_template = """
+                                given the Linkedin information {linkedin_information} about a person from I want you to create:
+                                1. a short summary
+                                2. current company
+                                3. current occupation
+                                4. short summary of reccommendations received
+                                5. short summary of skills endorsed
+
+                                in json
+                            """
+                            # prepare prompt (chat)
+                            summary_prompt_template = PromptTemplate(
+                            input_variables=["linkedin_information"],
+                            template=summary_template,
+                            )
+                            # create chatgpt instance
+                            # llm = ChatOpenAI(temperature=1, model_name="gpt-3.5-turbo")
+                            # LLM chain
+                            chain = LLMChain(llm=llm, prompt=summary_prompt_template)
+                            # execute and print result
+                            result = chain.run(linkedin_information=linkedin_data)
+                            resultjson = json.loads(result)
+                            print(json.loads(result))
+                            # produce data back
+                            def acked(err, msg):
+                                global delivered_records
+                                """
+                                    Delivery report handler called on successful or failed delivery of message
+                                """
+                                if err is not None:
+                                    print("Failed to deliver message: {}".format(err))
+                                else:
+                                    delivered_records += 1
+                                    print("Produced record to topic {} partition [{}] @ offset {}"
+                                        .format(msg.topic(), msg.partition(), msg.offset()))
+
+                            jobseekergenai_object = ccloud_lib.JobseekerGenAI()
+                            jobseekergenai_object.profile_id = jobseeker_object.profileid
+                            jobseekergenai_object.login = jobseeker_object.loginname
+                            jobseekergenai_object.first_name = js_genai["first_name"]
+                            jobseekergenai_object.last_name = js_genai["last_name"]
+                            jobseekergenai_object.email = js_genai["email"]
+                            jobseekergenai_object.location = js_genai["location"]
+                            jobseekergenai_object.company = resultjson["current_company"]
+                            jobseekergenai_object.profile_summary = js_genai["profile_summary"]
+                            jobseekergenai_object.ln_profile_summary = resultjson["short_summary"]
+                            jobseekergenai_object.ln_job_title = resultjson["current_occupation"]
+                            jobseekergenai_object.ln_endorsements = resultjson["skills_endorsed_summary"]
+                            jobseekergenai_object.ln_recommendations = resultjson["recommendations_summary"]
+                            jobseekergenai_object.technical_skills = js_genai["recent_technologies_worked"]
+                            jobseekergenai_object.recommended_jobs = js_genai["recommended_jobs"]
+                            jobseekergenai_object.technical_skills_embeddings = skills_embeddings
+                            # jobseekergenai_object.jobs_embeddings = jobs_embeddings
+                            print("Producing Avro record: {}\t{}\t{}\t{}\t{}\t{}"
+                                       .format(jobseekergenai_object.profile_id,jobseekergenai_object.login,jobseekergenai_object.first_name,jobseekergenai_object.last_name,jobseekergenai_object.email,jobseekergenai_object.location,jobseekergenai_object.company,jobseekergenai_object.profile_summary,jobseekergenai_object.ln_profile_summary,jobseekergenai_object.ln_job_title,jobseekergenai_object.ln_endorsements,jobseekergenai_object.ln_recommendations,jobseekergenai_object.technical_skills,jobseekergenai_object.recommended_jobs))
+                            producer.produce(topic=resumerestopic, value=jobseekergenai_object, on_delivery=acked)
+                            producer.poll(0)
+
+                            producer.flush()
+
+                            print("{} messages were produced to topic {}!".format(delivered_records, resumerestopic))
+                        except Exception as e:
+                            print("An error occured:", e)
+        except KeyboardInterrupt:
+            break
+        except SerializerError as e:
+            # Report malformed record, discard results, continue polling
+            print("Message deserialization failed {}".format(e))
+            pass
+
+    # Leave group and commit final offsets
+    consumer.close()
+
+ jobpostgenai_object = ccloud_lib.JobpostGenAI()
+                            jobpostgenai_object.reqid = jobpost_object.reqid
+                            jobpostgenai_object.loginname = jobpost_object.loginname
+                            jobpostgenai_object.jobreq = jobpost_object.jobreq
+                            jobpostgenai_object.job_title = jp_genai["job_title"]
+                            jobpostgenai_object.job_description = jp_genai["job_description"]
+                            jobpostgenai_object.required_skills = jp_genai["required_skills"]
+                            jobpostgenai_object.location = jp_genai["location"]
+                            jobpostgenai_object."preferred_skills" = jp_genai["preferred_skills"]
+                            jobpostgenai_object.jd_embeddings = jd_embeddings

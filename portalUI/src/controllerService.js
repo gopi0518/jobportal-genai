@@ -1,6 +1,6 @@
 import http from "./http-common";
 
-class UploadFilesService {
+class ControllerService {
   upload(url,file,userid) {
     let formData = new FormData();
 
@@ -13,9 +13,14 @@ class UploadFilesService {
     });
   }
 
+  listprofiles(url) {
+    return http.get(url, {
+    });
+  }
+
   /*getFiles() {
     return http.get("/resume/files");
   }*/
 }
 
-export default new UploadFilesService();
+export default new ControllerService();

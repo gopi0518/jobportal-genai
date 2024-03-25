@@ -4,6 +4,40 @@
   
 }
 
+.info {background-color: #2196F3;}
+.label {
+  color: white;
+  padding: 8px;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.btn {
+    padding: 5px;
+    display: inline;
+    border-radius: 1px;
+    font-family: "Arial";
+    border: 0;
+    margin: 0 5px;
+    font-size: 15px;
+    line-height: 5px;
+    color: white;
+    width: auto;
+    height: auto;
+}
+
+.btn.btn-primary:focus, .btn.btn-primary.focus {
+  box-shadow: 0 0 0 0.5rem rgba(173, 137, 125, 0.5);
+}
 .pdf-container{
   width: 50%;
   height: 600px;
@@ -15,21 +49,41 @@
 }
 
 .column1{
-background-color: #eee;
-width: 45%;
-height: 600px;
+width: 100%;
+height: 800px;
+}
+
+.column2{
+width: 50%;
+height: 800px;
+}
+
+.viewjobscolumn1{
+width: 40%;
+height: 100%;
+}
+
+.viewjobscolumn2{
+width: 60%;
+height: 100%;
+}
+
+.profilecolumn1{
+width: 50%;
+height: 800px;
+}
+
+.profilecolumn2{
+width: 50%;
+height: 800px;
 }
 .columnpost{
 background-color: #eee;
-width: 60%;
+width: 80%;
 height: 600px;
 }
 .columncard{
 width: 25%;
-height: 600px;
-}
-.column2{
-width: 10%;
 height: 600px;
 }
 .column3{
@@ -60,6 +114,16 @@ border-style: double;
   font-weight: 600;
 }
 
+.vertical-tabs {
+  margin: auto;
+  width: 55%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.react-chatbot-kit-chat-container {
+width: 100%;
+}
 .navbar {
   width: 100%;
   min-height: 10vh;
@@ -76,8 +140,83 @@ border-style: double;
   justify-content: space-around;
   list-style: none;
 }
-
+/*
 .navbar .nav-links>a{
+  color: #000;
+  text-decoration: underline;
+}*/
+
+.navbar ul a.active {
+ color: rgb(34 197 94);
+}
+
+/* vertical tabs on job seeker*/
+.vertical-tabs {
+  display: flex;
+}
+
+.tab-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizantal-tab-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.initialText {
+    font-size: 18px;
+    color: red;
+}
+.delayedText {
+    text-align: center;
+    font-size: 22px;
+    color: red;
+}
+
+.tab {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #ccc;
+}
+
+.tab-content {
+  padding: 10px;
+  width: 90%;
+  height: 100%
+}
+
+.app-chatbot-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  padding: 10px;
   color: #fff;
-  text-decoration: none;
+  background-color: #0d2d44;
+  border: none;
+  position: fixed;
+  bottom: 25px;
+  z-index: 9999;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app-chatbot-container {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  right: 40px;
+  bottom: 55px;
+  z-index: 9999;
+  box-shadow: 5px 5px 13px rgba(91, 81, 81, 0.4);
+  border-radius: 5px;
+}
+.app-chatbot-button-icon {
+  fill: #fff;
 }
