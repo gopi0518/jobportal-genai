@@ -60,6 +60,12 @@ export TF_VAR_mongodbatlas_org_id="<replace>"
 ```
 Terraform will take all these parameters and doing the configuraiton for you and finally deploy all confluent cloud resources including service accounts and role bindings.
 
+## Build your cloud infrastructure
+1. Navigate to the repo's terraform directory.
+   ```
+   cd terraform
+   ```
+
 ## Generative AI API we use
 
 We use langchain LLM version 0.1 [Langchain Docu](https://python.langchain.com/docs/get_started/introduction)
