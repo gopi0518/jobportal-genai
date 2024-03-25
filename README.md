@@ -121,23 +121,18 @@ Next Task: Create proxycurl api key. ProxyCurl will be used to scrape Linkedin. 
 To be able to search in Google the correct linkedin Profile URL, we need a API key of SERP API from [here](https://serpapi.com/).
 
 Now, put all Keys into `env-vars` file by executing the command:
-```bash
-cat > env-vars <<EOF
-export PYTHONPATH=/YOURPATH
+```
 export OPENAI_API_KEY=YOUR openAI Key
 export PROXYCURL_API_KEY=YOUR ProxyURL Key
 export SERPAPI_API_KEY=Your SRP API KEy
-EOF
 ```
 
 Congratulation the preparation is done. This was a huge setup, I know. But all the rest is "one command execution"
 
-## Run the job portal UI
+## Run the job portal UI (from home directory)
 ```
 cd portalUI
-npm install
 HTTPS=true npm start
-
 ```
 ## Run python code
 
