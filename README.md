@@ -132,7 +132,8 @@ Congratulation the preparation is done. This was a huge setup, I know. But all t
 ## Run the job portal UI (from home directory)
 ```
 cd portalUI
-HTTPS=true npm start
+npm install --save axios
+npm start
 ```
 ## Run python code
 
