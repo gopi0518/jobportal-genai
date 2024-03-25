@@ -105,7 +105,7 @@ This script achieves the following:
 * Updates the .env file to replace the remaining variables with the newly generated values.
 Source .env file
 ```
-Source .env file.
+source .env file.
 ```
 ## Generative AI API we use
 
