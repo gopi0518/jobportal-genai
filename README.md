@@ -12,6 +12,11 @@ You need a working account for Confluent Cloud. Sign-up with Confluent Cloud is 
   ```
   yum install npm
   ```
+* install python3
+  ```
+  yum install python3
+  yum install --assumeyes python3-pip
+  ```
 * install kafka or Confluent Platform (we need the tools kafka-avro-consumer-console and kafka-avro-producer-console), [Downlod Confluent Platform](https://www.confluent.io/get-started/?product=self-managed)
 * Local install Confluent CLI, [install the cli](https://docs.confluent.io/confluent-cli/current/install.html) 
 * install terraform on your desktop. [Follow the installation guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
@@ -21,7 +26,7 @@ You need a working account for Confluent Cloud. Sign-up with Confluent Cloud is 
 ```bash
 pip3 install confluent_kafka
 pip3 install PyPDF2
-pip3 install gcc
+   pip3 install gcc
 pip3 install pymongo
 pip3 install requests
 pip3 install fastavro
@@ -30,11 +35,11 @@ pip3 install jproperties
 pip3 install langchain
 pip3 install openai
 pip3 install langchain_openai
-pip3 install -U langchain-community
-pip3 install google-search-results
+ pip3 install -U langchain-community
+ pip3 install google-search-results
 pip3 install Flask
-pip3 install langchain_core
-pip3 install pydantic
+ pip3 install langchain_core
+ pip3 install pydantic
 ```
 
 ## API Keys from Confluent Cloud Cluster and Salesforce
@@ -137,16 +142,18 @@ export SERPAPI_API_KEY=Your SRP API KEy
 
 Congratulation the preparation is done. This was a huge setup, I know. But all the rest is "one command execution"
 
-## Run the job portal UI (from home directory)
+## Run the job portal UI (from repo home directory)
 ```
 cd portalUI
 npm install --save axios
 npm start
 ```
-## Run python code
+## Run python code (from repo home directory
 
 ```
-python resumeclassification.py getting_started.ini
+cd services
+python3 jobportalUIService.py -f client.properties -resumereq jobseekerv6 -jobpostreq jobpostreq
+python3 jobportalconsumer.py -f client.properties -resumereq jobseekerv4 -jobpostreq jobpostreq -resumeres dummytestv1 -jobpostres jobpostresv2
 ```
 
 # Destroy the Confluent Cloud Resources
