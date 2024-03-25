@@ -73,9 +73,9 @@ source .env
 ```
 ## Build your cloud infrastructure
 1. Navigate to the repo's terraform directory.
-   ```
-   cd terraform
-   ```
+```
+cd terraform
+```
 2. Initialize Terraform within the directory.
 ```
 terraform init
