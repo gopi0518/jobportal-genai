@@ -3,7 +3,15 @@
 You need a working account for Confluent Cloud. Sign-up with Confluent Cloud is very easy and you will get a $400 budget for your first trials for free. If you don't have a working Confluent Cloud account please [Sign-up to Confluent Cloud](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.campaigns_cd.Q124_EMEA_Stream-Processing-Essentials&utm_source=marketo&utm_medium=workshop).
 
 ## Tools
-
+* install git to clone the source
+  https://git-scm.com/book/it/v2/Per-Iniziare-Installing-Git
+  ```
+  yum install git
+  ```
+* install npm to install UI dependency packages (below example to install npm from yum package)
+  ```
+  yum install npm
+  ```
 * install kafka or Confluent Platform (we need the tools kafka-avro-consumer-console and kafka-avro-producer-console), [Downlod Confluent Platform](https://www.confluent.io/get-started/?product=self-managed)
 * Local install Confluent CLI, [install the cli](https://docs.confluent.io/confluent-cli/current/install.html) 
 * install terraform on your desktop. [Follow the installation guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
