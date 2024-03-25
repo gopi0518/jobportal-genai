@@ -42,7 +42,7 @@ For Confluent Cloud: Create API Key in Confluent Cloud via CLI (In my case as Or
     #| API Secret | <your generated secret>                                          |
     #+------------+------------------------------------------------------------------+
 ```
-## Clone and enter this repository.
+## Setup
 ```
 git clone https://github.com/gopi0518/jobportal-genai.git
 cd jobportal-genai
@@ -65,6 +65,19 @@ Terraform will take all these parameters and doing the configuraiton for you and
    ```
    cd terraform
    ```
+2. Initialize Terraform within the directory.
+```
+terraform init
+```
+3. Create the Terraform plan.
+```
+terraform plan
+```
+4. Apply the plan to create the infrastructure.
+```
+terraform apply
+```
+5. Write the output of terraform to a JSON file. The setup.sh script will parse the JSON file to update the .env file.
 
 ## Generative AI API we use
 
