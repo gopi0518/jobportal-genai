@@ -103,7 +103,10 @@ This script achieves the following:
 * Creates an API key pair for Schema Registry
 * Creates Tags and business metadata
 * Updates the .env file to replace the remaining variables with the newly generated values.
-
+Source .env file
+```
+Source .env file.
+```
 ## Generative AI API we use
 
 We use langchain LLM version 0.1 [Langchain Docu](https://python.langchain.com/docs/get_started/introduction)
