@@ -7,7 +7,6 @@ You need a working account for Confluent Cloud. Sign-up with Confluent Cloud is 
 * install kafka or Confluent Platform (we need the tools kafka-avro-consumer-console and kafka-avro-producer-console), [Downlod Confluent Platform](https://www.confluent.io/get-started/?product=self-managed)
 * Local install Confluent CLI, [install the cli](https://docs.confluent.io/confluent-cli/current/install.html) 
 * install terraform on your desktop. [Follow the installation guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
-* Install iterm 2, [see](https://iterm2.com/)
 * I am running still completely on bash on my Intel Mac. Environment Variables are set in `~/.bash_profile`, if you running other OS or use other Shells like zsh, please setup that script can execute kafka tools without absolution path.
 * install Python3 on MacOS: [Downland](https://www.python.org/downloads/macos/) and follow the instructions
 * Install all the python modules we need;
