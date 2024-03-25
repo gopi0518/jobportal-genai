@@ -12,6 +12,9 @@ You need a working account for Confluent Cloud. Sign-up with Confluent Cloud is 
 * Install all the python modules we need;
 ```bash
 pip3 install confluent_kafka
+pip3 install PyPDF2
+pip3 install gcc
+pip3 install pymongo
 pip3 install requests
 pip3 install fastavro
 pip3 install avro
@@ -40,18 +43,15 @@ For Confluent Cloud: Create API Key in Confluent Cloud via CLI (In my case as Or
     #+------------+------------------------------------------------------------------+
 ```
 
-Copy all the Parameter for Confluent Cloud into the `terraform.tfvars` file by execute the following command with your own data:
-```bash
-cat > terraform.tfvars <<EOF
-confluent_cloud_api_key = "{Cloud API Key}"
-confluent_cloud_api_secret = "{Cloud API Key Secret}"
-sf_user= "salesforce user"
-sf_password = "password"
-sf_cdc_name = "LeadChangeEvent"
-sf_password_token = "password token"
-sf_consumer_key = "consumer key of connected app"
-sf_consumer_secret = "consumer secret of connect app"
-EOF
+Update the .env file for the following variables with your credentials.:
+```
+CONFLUENT_CLOUD_EMAIL=<replace>
+CONFLUENT_CLOUD_PASSWORD=<replace>
+export TF_VAR_confluent_cloud_api_key="<replace>"
+export TF_VAR_confluent_cloud_api_secret="<replace>"
+export TF_VAR_mongodbatlas_public_key="<replace>"
+export TF_VAR_mongodbatlas_private_key="<replace>"
+export TF_VAR_mongodbatlas_org_id="<replace>"
 ```
 Terraform will take all these parameters and doing the configuraiton for you and finally deploy all confluent cloud resources including service accounts and role bindings.
 
