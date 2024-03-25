@@ -43,8 +43,10 @@ For Confluent Cloud: Create API Key in Confluent Cloud via CLI (In my case as Or
     #+------------+------------------------------------------------------------------+
 ```
 ## Clone and enter this repository.
+```
 git clone https://github.com/gopi0518/jobportal-genai.git
 cd jobportal-genai
+```
 
 Update the .env file for the following variables with your credentials.:
 ```
