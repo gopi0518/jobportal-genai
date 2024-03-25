@@ -81,38 +81,18 @@ EOF
 
 Congratulation the preparation is done. This was a huge setup, I know. But all the rest is "one command execution"
 
-# Execute the generative AI Demo with Confluent Cloud, Salesforce and langchain LLM
-Now comes the easy part. Just execute terraform.
-Please be aware to not use the terminal application iterm2 right now. Please use e.g. the standard terminal of MacOS.
-HINT:
-<table><tr><td>With terraform apply erverything will be deployed and a script is calling iterms to splitt three windows and start in each window a different program. If you start terraform from iterm2 Terminal, then the window splitt will not work. So, please to have to full automation do not start `terraform apply` from iterm2. </td></tr></table>
+## Run the job portal UI
+```
+cd portalUI
+npm install
+HTTPS=true npm start
 
-Execute terraform and all confluent cloud resources will deployed automatically:
-```bash
-cd terraform
-terraform init
-terraform plan
-terraform apply
-``` 
+```
+## Run python code
 
-This will take a while till all Confluent Cloud resources are provisioned. If this it is done, iterm2 terminals will be opened automatically and three services are executed.
-
-![alt terminals](img/terminals.png)
-
-Ok, now you need to add a new lead into Salesforce. This is the only manual step in that demo.
-
-![alt terminals](img/new_lead.png)
-
-The generative AI will take new lead from Kafka cluster  topic and do LLM action by getting information from Linkedin and doing execute the prompt automatically and in real-time.
-![alt terminals](img/ice_breaker.png)
-
-The Prompt is the task description for Chatgpt, we formulated the following content:
-* given the Linkedin information {linkedin_information} about a person from I want you to create:
-   1. a short summary
-   2. two interesting facts about them
-   3. A topic that may interest them
-   4. 2 creative Ice breakers to open a conversation with them
-
+```
+python resumeclassification.py getting_started.ini
+```
 
 # Destroy the Confluent Cloud Resources
 If you are finished, you can stop the programs in Terminal with CTRL+c and destroy everything in Confluent Cloud by :
