@@ -3,7 +3,6 @@ import Chatbot from 'react-chatbot-kit'
 import { ThemeProvider } from 'styled-components';
 import ActionProvider from './ActionProvider';
 import MessageParser from './MessageParser';
-import DogPicture from './DogPicture';
 import 'react-chatbot-kit/build/main.css'
 import config from './config';
 // Creating our own theme
