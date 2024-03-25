@@ -43,12 +43,16 @@ For Confluent Cloud: Create API Key in Confluent Cloud via CLI (In my case as Or
     #+------------+------------------------------------------------------------------+
 ```
 ## Setup
+1. Clone and enter this repository.
 ```
 git clone https://github.com/gopi0518/jobportal-genai.git
 cd jobportal-genai
 ```
-
-Update the .env file for the following variables with your credentials.:
+2. Create an .accounts file by running the following command.
+```
+echo "CONFLUENT_CLOUD_EMAIL=add_your_email\nCONFLUENT_CLOUD_PASSWORD=add_your_password\nexport TF_VAR_confluent_cloud_api_key=\"add_your_api_key\"\nexport TF_VAR_confluent_cloud_api_secret=\"add_your_api_secret\"\nexport TF_VAR_mongodbatlas_public_key=\"add_your_public_key\"\nexport TF_VAR_mongodbatlas_private_key=\"add_your_private_key\"\nexport TF_VAR_mongodbatlas_org_id=\"add_your_org_id\"" > .accounts
+```
+3. Update the .accounts file for the following variables with your credentials.
 ```
 CONFLUENT_CLOUD_EMAIL=<replace>
 CONFLUENT_CLOUD_PASSWORD=<replace>
@@ -58,8 +62,15 @@ export TF_VAR_mongodbatlas_public_key="<replace>"
 export TF_VAR_mongodbatlas_private_key="<replace>"
 export TF_VAR_mongodbatlas_org_id="<replace>"
 ```
-Terraform will take all these parameters and doing the configuraiton for you and finally deploy all confluent cloud resources including service accounts and role bindings.
-
+4. Navigate to the home directory of the project and run create_env.sh script. This bash script copies the content of .accounts file into a new file called .env and append additional variables to it.
+```
+cd jobportal-genai
+./create_env.sh
+```
+5. Source .env file.
+```
+source .env
+```
 ## Build your cloud infrastructure
 1. Navigate to the repo's terraform directory.
    ```
@@ -78,6 +89,20 @@ terraform plan
 terraform apply
 ```
 5. Write the output of terraform to a JSON file. The setup.sh script will parse the JSON file to update the .env file.
+```
+terraform output -json > ../resources.json
+```
+6. Run the setup.sh script.
+```
+cd jobportal-genai
+./setup.sh
+```
+This script achieves the following:
+
+* Creates an API key pair that will be used in connectors' configuration files for authentication purposes.
+* Creates an API key pair for Schema Registry
+* Creates Tags and business metadata
+* Updates the .env file to replace the remaining variables with the newly generated values.
 
 ## Generative AI API we use
 
