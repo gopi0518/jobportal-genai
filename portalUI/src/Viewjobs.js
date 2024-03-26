@@ -19,7 +19,7 @@ const Viewjobs = () =>  {
     console.log(user.name)
       useEffect(() => {
             const fetchData = async () => {
-            const response = await fetch('http://localhost:5000/jobportal/profile?login='+user.name+'&role=jobseeker')
+            const response = await fetch('/jobportal/profile?login='+user.name+'&role=jobseeker')
             const data = await response.json();
             console.log(data.items[0].recommended_jobs);
             setLocation(data.items[0].location);
