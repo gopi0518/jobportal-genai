@@ -12,7 +12,7 @@ const ProfileSummary = () =>  {
     console.log(user.name)
       useEffect(() => {
             const fetchData = async () => {
-            const response = await fetch('http://localhost:5000/jobportal/profile?login='+user.name)
+            const response = await fetch('/jobportal/profile?login='+user.name)
             const data = await response.json();
             console.log(data);
             setResponseData(data.items);
