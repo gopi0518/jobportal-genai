@@ -36,7 +36,7 @@ pip3 install langchain
 pip3 install openai
 pip3 install langchain_openai
  pip3 install -U langchain-community
- pip3 install google-search-results
+pip3 install google-search-results
 pip3 install Flask
  pip3 install langchain_core
  pip3 install pydantic
