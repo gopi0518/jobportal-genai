@@ -6,7 +6,7 @@ Use Case:
 
 Use Case Diagram:
 
-![alt Demo Architecture](img/jobseeker.png)
+![alt Demo Architecture](img/Jobseeker.jpeg)
 
 ## Confluent Cloud
 

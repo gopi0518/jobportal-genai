@@ -63,7 +63,7 @@ schema_registry_client = schema_registry_client,
 schema_str =  ccloud_lib.jobpost_schema,
 to_dict = ccloud_lib.Jobpost.jobpost_to_dict)
 # mongo connection
-client = pymongo.MongoClient("mongodb+srv://gdappili:confluent@confluentai.9job2cs.mongodb.net/?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb+srv://xxxxx:xxxxxx@confluentai.xxxxx.mongodb.net/?retryWrites=true&w=majority")
 db = client.genai
 profilecollection = db.dummytestv1
 jobpostscollection = db.jobpostresv2
