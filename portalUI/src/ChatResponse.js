@@ -15,7 +15,7 @@ const ChatResponse = () => {
   const user = useContext(UserContext);
   useEffect(() => {
             const fetchData = async () => {
-            const response = await fetch('http://localhost:5000/jobportal/recentsearch?login='+user.name)
+            const response = await fetch('/jobportal/recentsearch?login='+user.name)
             const data = await response.json();
             console.log(data);
             setResponseData(data.items);
@@ -27,7 +27,7 @@ const ChatResponse = () => {
     setQuery(query);
     const fetchresults = async () => {
             console.log(queryreq);
-            const response = await fetch('http://localhost:5000/jobportal/matchprofiles?login='+user.name,{
+            const response = await fetch('/jobportal/matchprofiles?login='+user.name,{
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({"searchquery": query})
