@@ -22,7 +22,7 @@ const viewJobposting = (reqid) => {
             setTimeout(() => {
             setShowDelayedText(true);
         }, 60000);
-            const response = await fetch('http://localhost:5000/jobportal/jobpost?jobid='+reqid,{
+            const response = await fetch('/jobportal/jobpost?jobid='+reqid,{
             method: "GET"
             }
             )
