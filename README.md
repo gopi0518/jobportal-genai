@@ -26,7 +26,6 @@ You need a working account for Confluent Cloud. Sign-up with Confluent Cloud is 
 ```bash
 pip3 install confluent_kafka
 pip3 install PyPDF2
-   pip3 install gcc
 pip3 install pymongo
 pip3 install requests
 pip3 install fastavro
@@ -35,11 +34,8 @@ pip3 install jproperties
 pip3 install langchain
 pip3 install openai
 pip3 install langchain_openai
- pip3 install -U langchain-community
 pip3 install google-search-results
 pip3 install Flask
- pip3 install langchain_core
- pip3 install pydantic
 ```
 
 ## API Keys from Confluent Cloud Cluster and Salesforce
