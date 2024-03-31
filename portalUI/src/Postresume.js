@@ -46,7 +46,7 @@ const user = useContext(UserContext);
   const alanBtnRef = useRef({}).current;
   const[menuItems, setMenuItems] = useState([])
   const[value, setValue] = useState([])
-  useEffect(() => {
+  /*useEffect(() => {
     alanBtnRef.btnInstance = alanBtn({
       key:
         "c897e9154ae01a2f35b977ff00fbcca32e956eca572e1d8b807a3e2338fdd0dc/stage",
@@ -62,11 +62,9 @@ const user = useContext(UserContext);
         alanBtnRef.btnInstance.callProjectApi("sendGreetingMessage",{data:{role:"jobseeker",user:loginval}});
       }
     },
-     /* onEvent: function (e) {
-    console.info('onEvent', e);
-  },*/
+
     })
-}, [])
+}, [])*/
   const handlePdfFileChange=(e)=>{
     let selectedFile=e.target.files[0];
     let url="/jobportal/resume/upload?userid="+loginval;

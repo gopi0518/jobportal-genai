@@ -8,14 +8,26 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 const ChatResponse = () => {
+
   const [searchresults, setResponseData] = useState('');
   const [queryreq, setQuery]=useState("");
   const [queryresults, setQueryResults]=useState("");
   const[searchreq, setSearchReqValue] = useState("");
+  let role = "";
   const user = useContext(UserContext);
   useEffect(() => {
+            const url = window.location.href;
+            console.log(url)
+
+            if(url.includes("/Recruiter")){
+            role="recruiter";
+            }
+            else{
+            role="jobseeker";
+            }
             const fetchData = async () => {
-            const response = await fetch('/jobportal/recentsearch?login='+user.name)
+            console.log(role);
+            const response = await fetch('/jobportal/recentsearch?login='+user.name+'&role='+role)
             const data = await response.json();
             console.log(data);
             setResponseData(data.items);
@@ -27,7 +39,7 @@ const ChatResponse = () => {
     setQuery(query);
     const fetchresults = async () => {
             console.log(queryreq);
-            const response = await fetch('/jobportal/matchprofiles?login='+user.name,{
+            const response = await fetch('/jobportal/matchprofiles?login='+user.name+'&role='+role,{
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({"searchquery": query})
