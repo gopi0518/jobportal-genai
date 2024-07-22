@@ -14,7 +14,7 @@ Use Case Diagrams:
 
 Demo:
 
-![JobportalDemo](https://drive.google.com/file/d/17u96OIifigB1-tLUkJeOt06sZRRhp-gz/view?usp=drive_link)
+[JobportalDemo](https://drive.google.com/file/d/17u96OIifigB1-tLUkJeOt06sZRRhp-gz/view?usp=drive_link)
 
 You need a working account for Confluent Cloud. Sign-up with Confluent Cloud is very easy and you will get a $400 budget for your first trials for free. If you don't have a working Confluent Cloud account please [Sign-up to Confluent Cloud](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.campaigns_cd.Q124_EMEA_Stream-Processing-Essentials&utm_source=marketo&utm_medium=workshop).
 
