@@ -20,6 +20,7 @@ const Postjob = () =>  {
         </div>
         <div className="tab-content">
           <Switch>
+            <Route path="/" exact component={Uploadjobpost} />
             <Route path="/UploadJob" component={Uploadjobpost} />
             <Route path="/CreateJobpost" component={Createjobpost} />
           </Switch>

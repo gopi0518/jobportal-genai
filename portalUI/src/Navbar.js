@@ -1,5 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import {  NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route,BrowserRouter } from "react-router-dom";
+import Jobseeker from "./Jobseeker";
+import Recruiter from "./Recruiter";
+import UserContext from './user-context';
 
 const Navbar= () =>{
  const [value, setValue] = useState("Tim");
@@ -14,9 +18,10 @@ const Navbar= () =>{
    console.log(responsedata);
  };
   return (
-<nav className="navbar navbar-expand-lg navbar-light bg-light py-3 sticky-top">
+<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+
             <div className="container">
-                <NavLink className="navbar-brand fw-bold fs-4 px-2" to="/"> JobPortal<br/> Powered by AI</NavLink>
+                <NavLink className="navbar-brand fw-bold fs-3 px-1" to="/"> JobPortal <br/> Powered by AI</NavLink>
                 <button className="navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -24,14 +29,16 @@ const Navbar= () =>{
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav m-auto my-2 text-center">
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/">Jobseeker </NavLink>
+                            <NavLink className="nav-link" to="/">Jobseeker</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/Recruiter">Recruiter</NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/test">test</NavLink>
+                        </li>
 
                     </ul>
-
 
                 </div>
 
@@ -40,6 +47,7 @@ const Navbar= () =>{
 
 
         </nav>
+
 
   );
 }

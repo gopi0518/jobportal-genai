@@ -3,10 +3,14 @@
   padding: 0;
   
 }
+html{
+  width: 100%;
+  height: 100%;
+}
 
 .info {background-color: #2196F3;}
 .label {
-  color: white;
+  color: black;
   padding: 8px;
 }
 
@@ -50,7 +54,7 @@
 
 .column1{
 width: 100%;
-height: 800px;
+height: 700px;
 }
 
 .column2{
@@ -66,6 +70,16 @@ height: 100%;
 .viewjobscolumn2{
 width: 60%;
 height: 100%;
+}
+
+.homecolumn1{
+width: 80%;
+height: 95%;
+}
+.homecolumn2{
+width: 80%;
+height: 69px;
+background-color: #e3f2fd;
 }
 
 .profilecolumn1{
@@ -114,24 +128,49 @@ border-style: double;
   font-weight: 600;
 }
 
-.vertical-tabs {
+.vertical-rec-tabs {
   margin: auto;
-  width: 55%;
-  border: 3px solid green;
+  /*background-image: url("./images.png");
+  background-color:#08B6B1;
+  background-color:#d66347 ;*/
+  top: 5px;
+  height: 900px;
+  display: flex;
+  left: 150px;
+  position: relative;
+  width: 60%;
+  border: 1px solid green;
   padding: 10px;
+  width: 55%;
+}
+
+.vertical-job-tabs {
+  margin: auto;
+  /*background-image: url("./images.png");
+  background-color:Gray ;*/
+  top: 5px;
+  height: 900px;
+  display: flex;
+  left: 150px;
+  position: relative;
+  width: 60%;
+  border: 1px solid green;
+  padding: 10px;
+  width: 55%;
 }
 
 .react-chatbot-kit-chat-container {
 width: 100%;
 }
 .navbar {
-  width: 100%;
-  min-height: 10vh;
+  width: 125%;
+  min-height: 8vh;
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  color: #fff;
+  align-items: right;
+  color: #000;
   background: rgba(29, 161, 242, 1);
+  border-bottom: 1px solid #BBBBBB;
 }
 
 .navbar .nav-links {
@@ -140,20 +179,18 @@ width: 100%;
   justify-content: space-around;
   list-style: none;
 }
-/*
+
 .navbar .nav-links>a{
   color: #000;
   text-decoration: underline;
-}*/
+}
 
 .navbar ul a.active {
  color: rgb(34 197 94);
 }
 
 /* vertical tabs on job seeker*/
-.vertical-tabs {
-  display: flex;
-}
+
 
 .tab-list {
   display: flex;
@@ -178,16 +215,17 @@ width: 100%;
 .tab {
   padding: 10px;
   cursor: pointer;
+  font-size: 18px;
 }
 
-.tab.active {
-  background-color: #ccc;
+.active {
+  color: green;
 }
 
 .tab-content {
   padding: 10px;
-  width: 90%;
-  height: 100%
+  width: 100%;
+  height: 100%;
 }
 
 .app-chatbot-button {
@@ -219,4 +257,23 @@ width: 100%;
 }
 .app-chatbot-button-icon {
   fill: #fff;
+}
+.jobportalhome{
+    /*background-image: url("./Jobportal.jpeg");*/
+    background-color: #FFFF00;
+    background-repeat: no-repeat;
+}
+
+.viewresume{
+    /*background-image: url("./Jobportal.jpeg");*/
+    background-color:#839192;
+    background-repeat: no-repeat;
+}
+.container{
+    /*background-image: url("./Jobportal.jpeg");
+    background-color: #FFFF00;*/
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 200px;
+
 }

@@ -45,7 +45,7 @@ const ViewProfiles = () =>  {
    }
 
     return(
-    <div>
+    <div className='container'>
     <div className="row">
     <input type="text" name="serachreq" placeholder="Ex: Solution architects" size="50" value={searchreq} onChange={(e) => {setSearchReqValue(e.target.value)}}/>
     <Button class="btn" onClick={() => searchProfiles(searchreq)}>Search</Button>
@@ -59,10 +59,12 @@ const ViewProfiles = () =>  {
     <Button class="btn" onClick={() => searchProfiles(search.searchquery)}>{search.searchquery}</Button>
     ))}
     </div>
+    </div>
+    </div>}
     <br/>
     <br/>
-     <div className="row">
-    {queryresults && queryresults.map(profile => (
+     {queryresults.length>0 && <div className="row">
+    {queryresults.map(profile => (
     <Card style={{ width: '20rem' }} key={profile.profile_id}>
       <Card.Body>
         <Card.Title>{profile.first_name} {profile.last_name}</Card.Title>
@@ -76,9 +78,8 @@ const ViewProfiles = () =>  {
       </Card.Body>
     </Card>
     ))}
-    </div>
-    </div>
     </div>}
+
     </div>
     );
     //return (<h1>Profile summary page in progress {responsedata.profile_id}</h1>);

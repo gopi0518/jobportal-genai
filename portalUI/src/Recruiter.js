@@ -1,13 +1,13 @@
-import React,{useState,useEffect,useRef} from 'react'
-import alanBtn from '@alan-ai/alan-sdk-web'
+import React,{useState} from 'react'
+//import alanBtn from '@alan-ai/alan-sdk-web'
 // Import the main component
 // Worker
-import { Worker } from '@react-pdf-viewer/core'; // install this library
+//import { Worker } from '@react-pdf-viewer/core'; // install this library
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Postjob from "./Postjob";
 import ViewProfiles from "./ViewProfiles";
-import { useLocation } from 'react-router-dom';
-import PortalChatbot from "./PortalChatbot";
+//import { useLocation } from 'react-router-dom';
+//import PortalChatbot from "./PortalChatbot";
 
 const VerticalTab = ({ label, to }) => (
   <Link to={to} className="tab">
@@ -46,22 +46,24 @@ export const Recruiter = () => {
 }, [])*/}
   return (
 
-    <div className="vertical-tabs">
-
+    <div className="vertical-job-tabs">
       <Router>
         <div className="tab-list">
-          <VerticalTab label="Post Job" to="/Postjob" />
+          <VerticalTab label="Upload Job Posting" to="/Postjob" />
+          <VerticalTab label="Create Job Posting AI" to="/Postjob" />
           <VerticalTab label="View Profiles" to="/ViewProfiles" />
           {/*<VerticalTab label="Portal Chatbot" to="/PortalChatbot" />*/}
         </div>
         <div className="tab-content">
           <Switch>
-            <Route path="/Postjob" component={Postjob} />
+            <Route path="/" exact component={ViewProfiles} />
             <Route path="/ViewProfiles" component={ViewProfiles} />
+            <Route path="/Postjob" component={Postjob} />
             {/*<Route path="/PortalChatbot" component={PortalChatbot} />*/}
           </Switch>
         </div>
       </Router>
+
     </div>
 
   );

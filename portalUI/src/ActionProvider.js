@@ -1,5 +1,5 @@
-import Recruiter from "./Recruiter"
 import ChatResponse from "./ChatResponse"
+import AIChatResponse from "./AIChatResponse"
 
 class ActionProvider {
   constructor(createChatBotMessage, setStateFunc) {
@@ -13,7 +13,7 @@ class ActionProvider {
     this.updateChatbotState(greetingMessage)
   }
 
-  handleDog = () => {
+  handleChat = () => {
     const botMessage = this.createChatBotMessage(
       "Based on profile context!!",
       {
@@ -22,12 +22,22 @@ class ActionProvider {
     );
    this.updateChatbotState(botMessage)
 }
+handleAICalls = (message) => {
+    const botMessage = this.createChatBotMessage(
+      "AI is preparing response for you!!",
+      {
+        widget: 'aiChatResponse',
+      }
+    );
+   this.updateChatbotState(botMessage)
+}
+
 
 
   updateChatbotState(message) {
 
 // NOTE: This function is set in the constructor, and is passed in      // from the top level Chatbot component. The setState function here     // actually manipulates the top level state of the Chatbot, so it's     // important that we make sure that we preserve the previous state.
-
+   console.log(message);
 
    this.setState(prevState => ({
     	...prevState, messages: [...prevState.messages, message]

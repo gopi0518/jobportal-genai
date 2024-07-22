@@ -91,7 +91,7 @@ const Viewjobs = () =>  {
     </div>
     <div className="viewjobscolumn2">
     {jobdetails && jobdetails.map(jobdet => (
-    <Card style={{ width: '30rem' }} key={jobdet.id}>
+    <Card style={{ width: '25rem' }} key={jobdet.id}>
       <Card.Body>
         <Card.Title>Job Details:</Card.Title>
       <ListGroup variant="flush">

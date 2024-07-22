@@ -18,7 +18,7 @@ import { Worker } from '@react-pdf-viewer/core'; // install this library
 import ControllerService from "./controllerService";
 import http from "./http-common";
 
-export const Postresume = () => {
+export const AskDoc = () => {
 const user = useContext(UserContext);
   console.log(user.name+"hello");
   const response="";
@@ -29,7 +29,7 @@ const user = useContext(UserContext);
   });
   // Create new plugin instance
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
-  
+
   // for onchange event
   const [pdfFile, setPdfFile]=useState(null);
   const [pdfFileError, setPdfFileError]=useState('');
@@ -48,7 +48,7 @@ const user = useContext(UserContext);
   const[value, setValue] = useState([])
   const handlePdfFileChange=(e)=>{
     let selectedFile=e.target.files[0];
-    let url="/jobportal/resume/upload?userid="+loginval;
+    let url="/jobportal/uploaddoc?userid="+loginval;
     if(selectedFile){
       if(selectedFile&&fileType.includes(selectedFile.type)){
         let reader = new FileReader();
@@ -137,7 +137,7 @@ const user = useContext(UserContext);
         {pdfFileError&&<div className='error-msg'>{pdfFileError}</div>}
         <br></br>
         <button type="submit" className='btn btn-success btn-sm'>
-          UPLOAD RESUME
+          UPLOAD DOC
         </button>
       </form>
 {viewPdf&&<><div>
@@ -159,4 +159,4 @@ const user = useContext(UserContext);
 
 }
 
-export default Postresume;
+export default AskDoc;

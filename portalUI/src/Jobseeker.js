@@ -6,18 +6,23 @@ import PortalChatbot from "./PortalChatbot";
 import ProfileSummary from "./ProfileSummary";
 import Viewjobs from "./Viewjobs";
 import UserContext from './user-context';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 const VerticalTab = ({ label, to }) => (
-  <Link to={to} className="tab">
+  <Link to={to} className="tab" activeClassName="active">
     {label}
   </Link>
 );
 
 const Jobseeker = () => {
-  //const { username } = useContext(UserContext);
-  //console.log(user.name);
+  const user  = useContext(UserContext);
+  console.log(user.name);
   return (
 
-    <div className="vertical-tabs">
+    <div className="vertical-job-tabs">
+
+    <div className="App">
+    </div>
 
       <Router>
         <div className="tab-list">
@@ -28,6 +33,7 @@ const Jobseeker = () => {
         </div>
         <div className="tab-content">
           <Switch>
+            <Route path="/" exact component={Postresume} />
             <Route path="/Postresume" component={Postresume} />
             <Route path="/ViewJobs" component={Viewjobs} />
             <Route path="/ProfileSummary" component={ProfileSummary} />

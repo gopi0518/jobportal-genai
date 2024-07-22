@@ -9,8 +9,10 @@ class MessageParser {
       this.actionProvider.greet()
     }
     if (lowerCaseMessage.includes("hi")) {
-      console.log("dog");
-      this.actionProvider.handleDog()
+      this.actionProvider.handleChat()
+    }
+    else {
+      this.actionProvider.handleAICalls(message)
     }
   }
 }

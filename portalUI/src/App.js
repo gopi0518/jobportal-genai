@@ -1,45 +1,107 @@
 import './index.css';
 import {useState, useEffect} from "react";
+import styled from "styled-components";
 import Chatbot from 'react-chatbot-kit'
 import ActionProvider from './ActionProvider';
 import MessageParser from './MessageParser';
 import config from './config';
-import { BrowserRouter as Router, Switch, Route,BrowserRouter } from "react-router-dom";
-import Navbar from "./Navbar"
-import alanBtn from '@alan-ai/alan-sdk-web'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { BrowserRouter as Router, Switch, Route,BrowserRouter,NavLink,Link } from "react-router-dom";
+//import Navbar from "./Navbar"
+//import alanBtn from '@alan-ai/alan-sdk-web'
 import Jobseeker from "./Jobseeker"
 import Recruiter from "./Recruiter"
-import UserContext from './user-context';
+import AskDoc from "./AskDoc"
+import UserContext from './user-context'
+import logo from './img.png'
+const Tab = styled.button`
+  font-size: 14px;
+  padding: 10px 60px;
+  cursor: pointer;
+  opacity: 1;
+  background: white;
+  border: 0;
+  outline: 0;
+  ${({ active }) =>
+    active &&
+    `
+    border-bottom: 4px solid blue;
+    opacity: 3;
+    font-weight: bold;
+  `}
+`;
+const ButtonGroup = styled.div`
+  display: flex;
+`;
 
+/*const ButtonGroup = styled.div.attrs({
+  className: 'btn-group-vertical',
+  })`
+  display: flex;
+`;*/
+
+const types = ["Ask Doc","Job Seeker", "Recruiter"];
 function App() {
+const [active, setActive] = useState(types[0]);
 const [value, setValue] = useState("Tim");
 const [showBot, toggleBot] = useState(false);
 const handleChange = async(event) => {
 setValue(event.target.value);
 };
   return (
-    <UserContext.Provider value={{ name: value }}>
-    <div>
-    <br/>
-    <label> &nbsp; Login:
-         <select value={value} onChange={handleChange}>
-              <option value="John">John</option>
-               <option value="Gopi">Gopi</option>
-                <option value="Tim">Tim</option>
-          </select>
-          <br/>
-          <br/>
-       <span class="label info">&nbsp; Welcome: {value}</span>
-    </label>
-       <Router>
-      <Navbar />
-      <Switch>
-        <Route path='/' exact component={Jobseeker} />
-        <Route path='/Recruiter' component={Recruiter} />
-        <Route path='/Jobseeker' component={Jobseeker} />
-      </Switch>
-    </Router>
+    <UserContext.Provider value={{ name: value,role:active }}>
+    <div className="row">
+    <div className="homecolumn1">
+     <Router>
+    <nav className="navbar navbar-expand-lg navbar-light bg-white">
+  <a class="navbar-brand" href="#">
+    <img src={logo} width="100" height="100" alt=""/>
+  </a>
 
+            <div className="container-fluid">
+                <NavLink to="/Jobseeker" className="navbar-brand"><a href="" className="logo" src={logo} width="30" height="30" alt=""/></NavLink>
+                <button className="navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="container-fluid mt-3">
+
+                    <ButtonGroup>
+                    {types.map((type) => (
+                     <Tab
+                       key={type}
+                       active={active === type}
+                       onClick={() => setActive(type)}>
+                       {type}
+                      </Tab>
+                       ))}
+                   </ButtonGroup>
+
+                    <br />
+
+                    <label>Login:
+                       <select value={value} onChange={handleChange}>
+                         <option value="John">John</option>
+                         <option value="Gopi">Gopi</option>
+                         <option value="Tim">Tim</option>
+                       </select>
+                       <span class="label">&nbsp; Welcome: {value}</span>
+                   </label>
+                  </div>
+
+
+            </div>
+
+
+        </nav>
+    </Router>
+    <div>
+      {active == "Ask Doc" && <AskDoc /> }
+      {active == "Job Seeker" && <Jobseeker /> }
+      {active == "Recruiter" && <Recruiter /> }
+      </div>
     <div className="app-chatbot-container">
         {showBot && (
           <Chatbot
@@ -59,6 +121,8 @@ setValue(event.target.value);
         </svg>
       </button>
     </div>
+    </div>
+
 
 
 </UserContext.Provider>
