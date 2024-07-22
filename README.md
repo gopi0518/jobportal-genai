@@ -48,6 +48,7 @@ pip3 install openai
 pip3 install langchain_openai
 pip3 install google-search-results
 pip3 install Flask
+pip install --quiet langchain_experimental
 ```
 
 ## API Keys from Confluent Cloud Cluster and Salesforce
@@ -146,6 +147,7 @@ Now, put all Keys into `env-vars` file by executing the command:
 export OPENAI_API_KEY=YOUR openAI Key
 export PROXYCURL_API_KEY=YOUR ProxyURL Key
 export SERPAPI_API_KEY=Your SRP API KEy
+export TAVILY_API_KEY=Your TAVILY KEY
 ```
 
 Congratulation the preparation is done. This was a huge setup, I know. But all the rest is "one command execution"
@@ -161,7 +163,7 @@ npm start
 ```
 cd services
 python3 jobportalUIService.py -f client.properties -resumereq jobseekerv6 -jobpostreq jobpostreq
-python3 jobportalconsumer.py -f client.properties -resumereq jobseekerv4 -jobpostreq jobpostreq -resumeres dummytestv1 -jobpostres jobpostresv2
+python3 jobportalconsumer.py -f client.properties -resumereq jobseekerv6 -jobpostreq jobpostreq -resumeres jobseekerresv1 -jobpostres jobpostresv2
 ```
 
 # Destroy the Confluent Cloud Resources
