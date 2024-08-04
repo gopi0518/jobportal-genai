@@ -28,7 +28,7 @@ variable "mongodbatlas_private_key" {
 variable "mongodbatlas_project_id" {
   description = "Project ID for MongoDB Atlas"
   type        = string
-  default     = "66a5808b1a6e291397daf5e2"
+  default     = "<<ORG_ID>>"
 }
 
 variable "mongodbatlas_region" {
@@ -40,17 +40,17 @@ variable "mongodbatlas_region" {
 variable "mongodbatlas_database_username" {
   description = "MongoDB Atlas database username. You can change it through command line"
   type        = string
-  default     = "dappilig"
+  default     = "<<USERNAME>>"
 }
 
 variable "mongodbatlas_database_password" {
   description = "MongoDB Atlas database password. You can change it through command line"
   type        = string
-  default     = "Prokarma"
+  default     = "<<PASSWORD>>"
 }
 
 variable "openai_key" {
   description = "MongoDB Atlas database password. You can change it through command line"
   type        = string
-  default     = "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"
+  default     = "<<OPENAI_KEY>>"
 }
