@@ -43,7 +43,7 @@ You need a working account for Confluent Cloud. Sign-up with Confluent Cloud is 
 
    ```bash
    git clone https://github.com/gopi0518/jobportal-genai.git
-   cd jobportal-genai
+   cd jobportal-genai/terraform
    ```
 
 1. Create an `.accounts` file by running the following command.
