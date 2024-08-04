@@ -1,0 +1,82 @@
+{
+  "fields": [
+    {
+      "default": null,
+      "name": "reqid",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "login",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "jobreq",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "job_title",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "job_description",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "required_skills",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "location",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "preferred_skills",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "jd_embeddings",
+      "type": [
+        {
+          "items": "double",
+          "type": "array"
+        },
+        "null"
+      ]
+    }
+  ],
+  "name": "record",
+  "namespace": "org.apache.jobpost.avro.generated",
+  "type": "record"
+}

@@ -1,0 +1,22 @@
+INSERT INTO jobseekerprofilev3
+SELECT
+JOBSEEKER_AI_ENRICHED_V1.profile_id,
+careerguide.title,
+careerguide.paths,
+JOBSEEKER_AI_ENRICHED_V1.email,
+JOBSEEKER_AI_ENRICHED_V1.technical_skills,
+JOBSEEKER_AI_ENRICHED_V1.recommended_jobs,
+JOBSEEKER_AI_ENRICHED_V1.login,
+JOBSEEKER_AI_ENRICHED_V1.first_name,
+JOBSEEKER_AI_ENRICHED_V1.last_name,
+JOBSEEKER_AI_ENRICHED_V1.location,
+JOBSEEKER_AI_ENRICHED_V1.company,
+JOBSEEKER_AI_ENRICHED_V1.profile_summary,
+JOBSEEKER_AI_ENRICHED_V1.ln_profile_summary,
+JOBSEEKER_AI_ENRICHED_V1.ln_job_title,
+JOBSEEKER_AI_ENRICHED_V1.ln_endorsements,
+JOBSEEKER_AI_ENRICHED_V1.ln_recommendations,
+JOBSEEKER_AI_ENRICHED_V1.technical_skills_embeddings
+FROM JOBSEEKER_AI_ENRICHED_V1
+LEFT JOIN careerguide
+ON JOBSEEKER_AI_ENRICHED_V1.ln_job_title = careerguide.title;

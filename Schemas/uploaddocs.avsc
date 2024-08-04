@@ -1,0 +1,39 @@
+{
+  "fields": [
+    {
+      "default": null,
+      "name": "filename",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "loginname",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "pagenum",
+      "type": [
+        "null",
+        "int"
+      ]
+    },
+    {
+      "default": null,
+      "name": "content",
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  ],
+  "name": "record",
+  "namespace": "org.apache.flink.avro.generated",
+  "type": "record"
+}

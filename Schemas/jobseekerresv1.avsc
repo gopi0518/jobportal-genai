@@ -1,0 +1,155 @@
+{
+  "fields": [
+    {
+      "default": null,
+      "name": "profile_id",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "login",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "first_name",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "last_name",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "email",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "location",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "company",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "profile_summary",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "ln_profile_summary",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "ln_job_title",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "ln_endorsements",
+      "type": [
+        {
+          "items": "string",
+          "type": "array"
+        },
+        "null"
+      ]
+    },
+    {
+      "default": null,
+      "name": "ln_recommendations",
+      "type": [
+        {
+          "items": "string",
+          "type": "array"
+        },
+        "null"
+      ]
+    },
+    {
+      "default": null,
+      "name": "technical_skills",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "recommended_jobs",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "technical_skills_embeddings_input",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    {
+      "default": null,
+      "name": "technical_skills_embeddings",
+      "type": [
+        {
+          "items": "double",
+          "type": "array"
+        },
+        "null"
+      ]
+    },
+    {
+      "default": null,
+      "name": "jobs_embeddings",
+      "type": [
+        {
+          "items": "double",
+          "type": "array"
+        },
+        "null"
+      ]
+    }
+  ],
+  "name": "record",
+  "namespace": "org.apache.flink.avro.generated",
+  "type": "record"
+}

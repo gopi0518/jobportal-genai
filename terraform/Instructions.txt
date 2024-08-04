@@ -1,0 +1,13 @@
+follow steps from here to create Confluent cloud and MongoDB
+
+https://github.com/confluentinc/demo-stream-designer?tab=readme-ov-file
+
+https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/sample-project#create-a-cloud-api-key
+
+https://www.mongodb.com/docs/atlas/configure-api-access/#std-label-create-org-api-key
+
+Steps
+
+cd /Users/gdappili/Documents/SE/demos
+./create_env.sh
+

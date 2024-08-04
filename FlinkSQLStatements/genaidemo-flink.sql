@@ -5,7 +5,7 @@ CREATE TABLE `careerguide` (
     `rec_courses` STRING
     > >,
   PRIMARY KEY (`title`) ENFORCED
-)
+);
 
 INSERT INTO `careerguide` VALUES
 (
@@ -20,8 +20,7 @@ INSERT INTO `careerguide` VALUES
       'https://www.linkedin.com/learning/sales-leadership,https://www.coursera.org/learn/strategic-sales-management,https://www.udemy.com/course/effective-team-management/,https://www.edx.org/learn/financial-management'
       )
     ]
-  )
-;
+  );
 
 create table jobseekerprofilev3(
 profile_id STRING,
@@ -44,10 +43,6 @@ technical_skills_embeddings ARRAY<DOUBLE NOT NULL>,
 PRIMARY KEY (profile_id) NOT ENFORCED
 );
 
-
-Flink SQL OpenAI embedding
-
-set 'sql.secrets.openaikey' = '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';
 CREATE MODEL `profile_skills_embeddings`
 INPUT (technical_skills_embeddings_input STRING)
 OUTPUT (profile_skills_embeddings ARRAY<FLOAT>)
@@ -57,7 +52,6 @@ WITH(
   'OPENAI.ENDPOINT' = 'https://api.openai.com/v1/embeddings',
   'OPENAI.API_KEY' = '{{sessionconfig/sql.secrets.openaikey}}'
 );
-
 
 create table JOBSEEKER_AI_ENRICHED_V1(
 profile_id STRING,
@@ -122,3 +116,19 @@ JOBSEEKER_AI_ENRICHED_V1.technical_skills_embeddings
 FROM JOBSEEKER_AI_ENRICHED_V1
 LEFT JOIN careerguide
 ON JOBSEEKER_AI_ENRICHED_V1.ln_job_title = careerguide.title;
+
+create table docs_embeddings_v1(
+filename STRING,
+loginname STRING,
+pagenum INTEGER,
+text STRING,
+embedding ARRAY<DOUBLE NOT NULL>);
+
+insert into docs_embeddings_v1
+       select filename as `title`,
+        loginname,
+        pagenum,
+        content as `text`,
+        profile_skills_embeddings as `embedding`
+        from uploaddocs,LATERAL TABLE(ML_PREDICT('profile_skills_embeddings', content))
+        where content is not null;
