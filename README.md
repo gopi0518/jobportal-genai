@@ -70,7 +70,7 @@ You need a working account for Confluent Cloud. Sign-up with Confluent Cloud is 
 1. Navigate to the home directory of the project and run `create_env.sh` script. This bash script copies the content of `.accounts` file into a new file called `.env` and append additional variables to it.
 
    ```bash
-   cd demo-stream-designer
+   cd jobportal-genai
    ./create_env.sh
    ```
 
@@ -81,31 +81,6 @@ You need a working account for Confluent Cloud. Sign-up with Confluent Cloud is 
    ```
 
    > **Note:** if you don't source `.env` file you'll be prompted to manually provide the values through command line when running Terraform commands.
-
-## Build your cloud infrastructure
-
-1. Navigate to the repo's terraform directory.
-   ```bash
-   cd terraform
-   ```
-1. Log into your AWS account through command line.
-
-1. Initialize Terraform within the directory.
-   ```bash
-   terraform init
-   ```
-1. Create the Terraform plan.
-   ```bash
-   terraform plan
-   ```
-1. Apply the plan to create the infrastructure.
-
-   ```bash
-   terraform apply
-   ```
-
-   > **Note:** Read the `main.tf` configuration file [to see what will be created](./terraform/main.tf).
->>>>>>> Stashed changes
 
 ## Tools
 * install git to clone the source
