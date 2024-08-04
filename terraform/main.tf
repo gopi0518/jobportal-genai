@@ -403,7 +403,7 @@ resource "confluent_flink_statement" "create-careerguide-flink" {
     id = confluent_service_account.statements-runner.id
   }
   # https://docs.confluent.io/cloud/current/flink/reference/example-data.html#marketplace-database
-  statement = file("../Statements/create-careerguide-flink.sql")
+  statement = file("../FlinkSQLStatements/create-careerguide-flink.sql")
   properties = {
     "sql.current-catalog"  = confluent_environment.genaidemo.display_name
     "sql.current-database" = confluent_kafka_cluster.dedicated.display_name
@@ -432,7 +432,7 @@ resource "confluent_flink_statement" "model-profileembedding" {
     id = confluent_service_account.statements-runner.id
   }
   # https://docs.confluent.io/cloud/current/flink/reference/example-data.html#marketplace-database
-  statement = file("../Statements/model-profileembedding.sql")
+  statement = file("../FlinkSQLStatements/model-profileembedding.sql")
   properties = {
     "sql.current-catalog"  = confluent_environment.genaidemo.display_name
     "sql.current-database" = confluent_kafka_cluster.dedicated.display_name
@@ -461,7 +461,7 @@ resource "confluent_flink_statement" "create-jobseekerprofilev3" {
     id = confluent_service_account.statements-runner.id
   }
   # https://docs.confluent.io/cloud/current/flink/reference/example-data.html#marketplace-database
-  statement = file("../Statements/create-jobseekerprofilev3.sql")
+  statement = file("../FlinkSQLStatements/create-jobseekerprofilev3.sql")
   properties = {
     "sql.current-catalog"  = confluent_environment.genaidemo.display_name
     "sql.current-database" = confluent_kafka_cluster.dedicated.display_name
@@ -490,7 +490,7 @@ resource "confluent_flink_statement" "create-jobseeker-enriched" {
     id = confluent_service_account.statements-runner.id
   }
   # https://docs.confluent.io/cloud/current/flink/reference/example-data.html#marketplace-database
-  statement = file("../Statements/create-jobseeker-enriched.sql")
+  statement = file("../FlinkSQLStatements/create-jobseeker-enriched.sql")
   properties = {
     "sql.current-catalog"  = confluent_environment.genaidemo.display_name
     "sql.current-database" = confluent_kafka_cluster.dedicated.display_name
@@ -519,7 +519,7 @@ resource "confluent_flink_statement" "create-doc-embedding" {
     id = confluent_service_account.statements-runner.id
   }
   # https://docs.confluent.io/cloud/current/flink/reference/example-data.html#marketplace-database
-  statement = file("../Statements/create-doc-embeddings.sql")
+  statement = file("../FlinkSQLStatements/create-doc-embeddings.sql")
   properties = {
     "sql.current-catalog"  = confluent_environment.genaidemo.display_name
     "sql.current-database" = confluent_kafka_cluster.dedicated.display_name
@@ -548,7 +548,7 @@ resource "confluent_flink_statement" "insert-career-guide" {
     id = confluent_service_account.statements-runner.id
   }
   # https://docs.confluent.io/cloud/current/flink/reference/example-data.html#marketplace-database
-  statement = file("../Statements/insert-careerguide-flink.sql")
+  statement = file("../FlinkSQLStatements/insert-careerguide-flink.sql")
   properties = {
     "sql.current-catalog"  = confluent_environment.genaidemo.display_name
     "sql.current-database" = confluent_kafka_cluster.dedicated.display_name
@@ -577,7 +577,7 @@ resource "confluent_flink_statement" "insert-doc-embeddings" {
     id = confluent_service_account.statements-runner.id
   }
   # https://docs.confluent.io/cloud/current/flink/reference/example-data.html#marketplace-database
-  statement = file("../Statements/insert-doc-embeddings.sql")
+  statement = file("../FlinkSQLStatements/insert-doc-embeddings.sql")
   properties = {
     "sql.current-catalog"  = confluent_environment.genaidemo.display_name
     "sql.current-database" = confluent_kafka_cluster.dedicated.display_name
@@ -606,7 +606,7 @@ resource "confluent_flink_statement" "insert-jobseeker-enriched" {
     id = confluent_service_account.statements-runner.id
   }
   # https://docs.confluent.io/cloud/current/flink/reference/example-data.html#marketplace-database
-  statement = file("../Statements/insert-jobseeker-enriched.sql")
+  statement = file("../FlinkSQLStatements/insert-jobseeker-enriched.sql")
   properties = {
     "sql.current-catalog"  = confluent_environment.genaidemo.display_name
     "sql.current-database" = confluent_kafka_cluster.dedicated.display_name
@@ -635,7 +635,7 @@ resource "confluent_flink_statement" "insert-jobseekerprofilev3" {
     id = confluent_service_account.statements-runner.id
   }
   # https://docs.confluent.io/cloud/current/flink/reference/example-data.html#marketplace-database
-  statement = file("../Statements/insert-jobseekerprofilev3.sql")
+  statement = file("../FlinkSQLStatements/insert-jobseekerprofilev3.sql")
   properties = {
     "sql.current-catalog"  = confluent_environment.genaidemo.display_name
     "sql.current-database" = confluent_kafka_cluster.dedicated.display_name
