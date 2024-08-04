@@ -10,13 +10,102 @@ Use Case Diagrams:
 
   Recruiter flow:
 ![Recruiter flow](img/Recruiter.jpeg)
+
+# Prerequisites
+
 ## Confluent Cloud
 
+<<<<<<< Updated upstream
 Demo:
 
 [JobportalDemo](https://drive.google.com/file/d/17u96OIifigB1-tLUkJeOt06sZRRhp-gz/view?usp=drive_link)
 
 You need a working account for Confluent Cloud. Sign-up with Confluent Cloud is very easy and you will get a $400 budget for your first trials for free. If you don't have a working Confluent Cloud account please [Sign-up to Confluent Cloud](https://www.confluent.io/confluent-cloud/tryfree/?utm_campaign=tm.campaigns_cd.Q124_EMEA_Stream-Processing-Essentials&utm_source=marketo&utm_medium=workshop).
+=======
+1. Sign up for a Confluent Cloud account [here](https://www.confluent.io/get-started/).
+1. After verifying your email address, access Confluent Cloud sign-in by navigating [here](https://confluent.cloud).
+1. When provided with the _username_ and _password_ prompts, fill in your credentials.
+
+   > **Note:** If you're logging in for the first time you will see a wizard that will walk you through the some tutorials. Minimize this as you will walk through these steps in this guide.
+
+1. Create Confluent Cloud API keys by following [this](https://registry.terraform.io/providers/confluentinc/confluent/latest/docs/guides/sample-project#summary) guide.
+   > **Note:** This is different than Kafka cluster API keys.
+
+## MongoDB Atlas
+
+1. Sign up for a free MongoDB Atlas account [here](https://www.mongodb.com/).
+
+1. Create an API key pair so Terraform can create resources in the Atlas cluster. Follow the instructions [here](https://registry.terraform.io/providers/mongodb/mongodbatlas/latest/docs#configure-atlas-programmatic-access).
+
+# Setup
+
+1. Clone and enter this repository.
+
+   ```bash
+   git clone https://github.com/gopi0518/jobportal-genai.git
+   cd jobportal-genai
+   ```
+
+1. Create an `.accounts` file by running the following command.
+
+   ```bash
+   echo "CONFLUENT_CLOUD_EMAIL=add_your_email\nCONFLUENT_CLOUD_PASSWORD=add_your_password\nexport TF_VAR_confluent_cloud_api_key=\"add_your_api_key\"\nexport TF_VAR_confluent_cloud_api_secret=\"add_your_api_secret\"\nexport TF_VAR_mongodbatlas_public_key=\"add_your_public_key\"\nexport TF_VAR_mongodbatlas_private_key=\"add_your_private_key\"\nexport TF_VAR_mongodbatlas_org_id=\"add_your_org_id\"" > .accounts
+
+   ```
+
+   > **Note:** This repo ignores `.accounts` file
+
+1. Update the `.accounts` file for the following variables with your credentials.
+
+   ```bash
+   CONFLUENT_CLOUD_EMAIL=<replace>
+   CONFLUENT_CLOUD_PASSWORD=<replace>
+   export TF_VAR_confluent_cloud_api_key="<replace>"
+   export TF_VAR_confluent_cloud_api_secret="<replace>"
+   export TF_VAR_mongodbatlas_public_key="<replace>"
+   export TF_VAR_mongodbatlas_private_key="<replace>"
+   export TF_VAR_mongodbatlas_org_id="<replace>"
+   ```
+
+1. Navigate to the home directory of the project and run `create_env.sh` script. This bash script copies the content of `.accounts` file into a new file called `.env` and append additional variables to it.
+
+   ```bash
+   cd demo-stream-designer
+   ./create_env.sh
+   ```
+
+1. Source `.env` file.
+
+   ```bash
+   source .env
+   ```
+
+   > **Note:** if you don't source `.env` file you'll be prompted to manually provide the values through command line when running Terraform commands.
+
+## Build your cloud infrastructure
+
+1. Navigate to the repo's terraform directory.
+   ```bash
+   cd terraform
+   ```
+1. Log into your AWS account through command line.
+
+1. Initialize Terraform within the directory.
+   ```bash
+   terraform init
+   ```
+1. Create the Terraform plan.
+   ```bash
+   terraform plan
+   ```
+1. Apply the plan to create the infrastructure.
+
+   ```bash
+   terraform apply
+   ```
+
+   > **Note:** Read the `main.tf` configuration file [to see what will be created](./terraform/main.tf).
+>>>>>>> Stashed changes
 
 ## Tools
 * install git to clone the source
